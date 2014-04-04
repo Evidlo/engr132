@@ -1,12 +1,14 @@
-# Filename convention examples
-## info/intro slide
+## Filename convention examples
+### info/intro slide
 	introguiName_ewidlosk
-## main gui
+### main gui
 	guiName_ewidlosk
-## common guis (front page, citations, etc)
+### common guis (front page, citations, etc)
 	guiName_sec005_team18
 
-# M5 todo
+## M5 todo
 * do all code navigation
 * all elements that are used (anything besides static labels) must have tag names
 * all tags for elements need to be stored in the FileTagInventory_sec005_team18.docx
+* flowchart must be in a .ppt
+.* must have filenames and name of coder
