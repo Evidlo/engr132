@@ -18,7 +18,8 @@
 * table - table_XXX
 * button group - bgroup_XXX
 * plot - plot_XXX
-* popup - popup_XXX
+* popup menu - menu_XXX
+* popup box - popup_XXX
 
 ## M5 todo
 * do all code navigation
