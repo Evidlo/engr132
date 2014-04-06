@@ -21,9 +21,15 @@
 * popup menu - menu_XXX
 * popup box - popup_XXX
 
+## Nav buttons (all at top)
+* Main menu - left 
+* Next - 2nd from left
+* Prev - 3rd from left
+* Exit - right
+
+
 ## M5 todo
-* do all code navigation
+* do all code navigation (next, prev, exit, etc. see M5_NavMap_sec005_team18.ppt)
 * all elements that are used (anything besides static labels) must have tag names
 * all tags for elements need to be stored in the FileTagInventory_sec005_team18.docx
-* flowchart must be in a .ppt
 .* must have filenames and name of coder
