@@ -115,5 +115,5 @@ function push_mainmenu_Callback(hObject, eventdata, handles)
 % hObject    handle to push_continue (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-nanoGUI_sec005_team18;
+nanoGUI_sec00
 close(NanoSize_nluehrs);
