@@ -22,7 +22,7 @@ function varargout = NanoPlane_ewidlosk(varargin)
 
 % Edit the above text to modify the response to help NanoPlane_ewidlosk
 
-% Last Modified by GUIDE v2.5 06-Apr-2014 11:15:57
+% Last Modified by GUIDE v2.5 09-Apr-2014 21:22:48
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -105,6 +105,7 @@ function push_takeoff_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in push_exit.
 function push_exit_Callback(hObject, eventdata, handles)
+close
 % hObject    handle to push_exit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -130,3 +131,22 @@ function slide_truss_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
+
+
+% --- Executes on button press in push_previous.
+function push_previous_Callback(hObject, eventdata, handles)
+NanoPlaneIntro_ewidlosk;
+close(NanoPlane_ewidlosk);
+
+% hObject    handle to push_previous (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in push_menu.
+function push_menu_Callback(hObject, eventdata, handles)
+nanohubGUI_sec005_team18;
+close(NanoPlane_ewidlosk);
+% hObject    handle to push_menu (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
