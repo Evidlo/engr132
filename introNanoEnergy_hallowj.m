@@ -22,7 +22,7 @@ function varargout = introNanoEnergy_hallowj(varargin)
 
 % Edit the above text to modify the response to help introNanoEnergy_hallowj
 
-% Last Modified by GUIDE v2.5 09-Apr-2014 20:02:45
+% Last Modified by GUIDE v2.5 09-Apr-2014 20:08:19
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -71,3 +71,24 @@ function varargout = introNanoEnergy_hallowj_OutputFcn(hObject, eventdata, handl
 
 % Get default command line output from handles structure
 varargout{1} = handles.output;
+
+
+% --- Executes on button press in push_MainMenu.
+function push_MainMenu_Callback(hObject, eventdata, handles)
+% hObject    handle to push_MainMenu (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in push_Next.
+function push_Next_Callback(hObject, eventdata, handles)
+% hObject    handle to push_Next (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in push_Exit.
+function push_Exit_Callback(hObject, eventdata, handles)
+% hObject    handle to push_Exit (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
