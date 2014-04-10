@@ -1,5 +1,5 @@
 function varargout = NanoSize_nluehrs(varargin)
-% NANOSIZE_NLUEHRS MATLAB code for NAnoSize_nluehrs.fig
+% NANOSIZE_NLUEHRS MATLAB code for NanoSize_nluehrs.fig
 %      NANOSIZE_NLUEHRS, by itself, creates a new NANOSIZE_NLUEHRS or raises the existing
 %      singleton*.
 %
@@ -22,7 +22,7 @@ function varargout = NanoSize_nluehrs(varargin)
 
 % Edit the above text to modify the response to help NanoSize_nluehrs
 
-% Last Modified by GUIDE v2.5 07-Apr-2014 12:40:39
+% Last Modified by GUIDE v2.5 09-Apr-2014 22:11:37
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -73,34 +73,12 @@ function varargout = NanoSize_nluehrs_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 
-% --- Executes on slider movement.
-function slider1_Callback(hObject, eventdata, handles)
-% hObject    handle to slider1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'Value') returns position of slider
-%        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-
-
-% --- Executes during object creation, after setting all properties.
-function slider1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: slider controls usually have a light gray background.
-if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor',[.9 .9 .9]);
-end
-
-
-% --- Executes on button press in push_back.
+% --- Executes on button press in push_previous.
 function push_previous_Callback(hObject, eventdata, handles)
-% hObject    handle to push_back (see GCBO)
+% hObject    handle to push_previous (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-Intro_nluehrs;
+NanoSizeIntro_nluehrs;
 close(NanoSize_nluehrs);
 
 % --- Executes on button press in push_exit.
@@ -110,10 +88,10 @@ function push_exit_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 close(NanoSize_nluehrs);
 
-% --- Executes on button press in push_continue.
+% --- Executes on button press in push_mainmenu.
 function push_mainmenu_Callback(hObject, eventdata, handles)
-% hObject    handle to push_continue (see GCBO)
+% hObject    handle to push_mainmenu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-nanoGUI_sec005_team18;
+nanohubGUI_sec005_team18;
 close(NanoSize_nluehrs);

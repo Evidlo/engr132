@@ -22,7 +22,7 @@ function varargout = nanohubGUI_sec005_team18(varargin)
 
 % Edit the above text to modify the response to help nanohubGUI_sec005_team18
 
-% Last Modified by GUIDE v2.5 09-Apr-2014 21:25:18
+% Last Modified by GUIDE v2.5 09-Apr-2014 21:58:22
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -82,39 +82,39 @@ function push_exit_Callback(hObject, eventdata, handles)
 % hObject    handle to push_exit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-close;
+close(nanohubGUI_sec005_team18);
 
 % --- Executes on button press in push_nanosize.
 function push_nanosize_Callback(hObject, eventdata, handles)
 % hObject    handle to push_nanosize (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-NanoSize_nluehrs;
-close;
+NanoSizeIntro_nluehrs;
+close(nanohubGUI_sec005_team18);
 
 % --- Executes on button press in push_nanoenergy.
 function push_nanoenergy_Callback(hObject, eventdata, handles)
 % hObject    handle to push_nanoenergy (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-NanoEnergy_hallowj;
-close;
+NanoEnergyIntro_hallowj;
+close(nanohubGUI_sec005_team18);
 
 % --- Executes on button press in push_nanoplane.
 function push_nanoplane_Callback(hObject, eventdata, handles)
 % hObject    handle to push_nanoplane (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-NanoPlane_ewidlosk;
-close;
+NanoPlaneIntro_ewidlosk;
+close(nanohubGUI_sec005_team18);
 
 % --- Executes on button press in push_nanomelt.
 function push_nanomelt_Callback(hObject, eventdata, handles)
 % hObject    handle to push_nanomelt (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-NanoMelt_ksermers;
-close;
+NanoMeltIntro_ksermers;
+close(nanohubGUI_sec005_team18);
 
 
 % --- Executes on button press in push_cite.
@@ -123,4 +123,4 @@ function push_cite_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 citationGUI_sec005_team18;
-close;
+close(nanohubGUI_sec005_team18);
