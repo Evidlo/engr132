@@ -1,4 +1,4 @@
-function varargout = nanohubGUI_sec005_team18(varargin)
+nafunction varargout = nanohubGUI_sec005_team18(varargin)
 % NANOHUBGUI_SEC005_TEAM18 MATLAB code for nanohubGUI_sec005_team18.fig
 %      NANOHUBGUI_SEC005_TEAM18, by itself, creates a new NANOHUBGUI_SEC005_TEAM18 or raises the existing
 %      singleton*.
@@ -63,7 +63,7 @@ guidata(hObject, handles);
 
 %Load photo of plane onto plot_pic
 axes(handles.plot_pic);
-F = imread('airplane_structure.jpg');
+F = imread('img/airplane_structure.jpg');
 imshow(F, 'Parent', handles.plot_pic);
 
 % --- Outputs from this function are returned to the command line.
