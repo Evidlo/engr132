@@ -84,7 +84,7 @@ close
 % --- Executes on button press in push_menu.
 function push_menu_Callback(hObject, eventdata, handles)
 nanohubGUI_sec005_team18;
-close(NanoPlane_ewidlosk);
+close(NanoPlaneIntro_ewidlosk);
 % hObject    handle to push_menu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)

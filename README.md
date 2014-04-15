@@ -1,10 +1,11 @@
 ## Filename convention examples
 ### info/intro slide
-	introguiName_ewidlosk
+	GuiNameIntro_ewidlosk
 ### main gui
-	guiName_ewidlosk
+	GuiName_ewidlosk
 ### common guis (front page, citations, etc)
-	guiName_sec005_team18
+	citations_sec005_team18
+
 
 ## Element tag convention examples
 * radio button - radio_XXX

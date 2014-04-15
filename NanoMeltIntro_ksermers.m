@@ -22,7 +22,7 @@ function varargout = Reaction_rates_intro(varargin)
 
 % Edit the above text to modify the response to help Reaction_rates_intro
 
-% Last Modified by GUIDE v2.5 02-Apr-2014 18:26:19
+% Last Modified by GUIDE v2.5 09-Apr-2014 22:46:42
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -74,8 +74,8 @@ varargout{1} = handles.output;
 
 
 % --- Executes on slider movement.
-function slider1_Callback(hObject, eventdata, handles)
-% hObject    handle to slider1 (see GCBO)
+function slide_radius_Callback(hObject, eventdata, handles)
+% hObject    handle to slide_radius (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
@@ -84,8 +84,8 @@ function slider1_Callback(hObject, eventdata, handles)
 
 
 % --- Executes during object creation, after setting all properties.
-function slider1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider1 (see GCBO)
+function slide_radius_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slide_radius (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -131,22 +131,22 @@ function togglebutton4_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of togglebutton4
 
 
-% --- Executes on button press in pushbutton1.
-function pushbutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
+% --- Executes on button press in push_next.
+function push_next_Callback(hObject, eventdata, handles)
+% hObject    handle to push_next (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton2.
-function pushbutton2_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton2 (see GCBO)
+% --- Executes on button press in push_back.
+function push_back_Callback(hObject, eventdata, handles)
+% hObject    handle to push_back (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
 
-% --- Executes on button press in pushbutton3.
-function pushbutton3_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton3 (see GCBO)
+% --- Executes on button press in push_graph.
+function push_graph_Callback(hObject, eventdata, handles)
+% hObject    handle to push_graph (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
