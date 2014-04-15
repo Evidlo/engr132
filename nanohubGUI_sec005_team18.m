@@ -1,4 +1,4 @@
-nafunction varargout = nanohubGUI_sec005_team18(varargin)
+function varargout = nanohubGUI_sec005_team18(varargin)
 % NANOHUBGUI_SEC005_TEAM18 MATLAB code for nanohubGUI_sec005_team18.fig
 %      NANOHUBGUI_SEC005_TEAM18, by itself, creates a new NANOHUBGUI_SEC005_TEAM18 or raises the existing
 %      singleton*.
