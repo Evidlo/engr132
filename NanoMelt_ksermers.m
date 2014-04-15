@@ -75,6 +75,8 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in push_Main_Menu.
 function push_Main_Menu_Callback(hObject, eventdata, handles)
+nanohubGUI_sec005_team18 %open Main Menu
+close(NanoMelt_ksermers); %close gui
 % hObject    handle to push_Main_Menu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -82,6 +84,8 @@ function push_Main_Menu_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in push_Previous.
 function push_Previous_Callback(hObject, eventdata, handles)
+NanoMeltIntro_ksermers %open NanoMeltIntro_ksermers
+close(NanoMelt_ksermers); %close gui
 % hObject    handle to push_Previous (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -89,6 +93,7 @@ function push_Previous_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in push_Exit.
 function push_Exit_Callback(hObject, eventdata, handles)
+close(NanoMelt_ksermers); %close gui
 % hObject    handle to push_Exit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
