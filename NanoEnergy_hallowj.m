@@ -160,7 +160,7 @@ close(NanoEnergy_hallowj);
 
 % --- Executes on button press in push_Exit.
 function push_Exit_Callback(hObject, eventdata, handles)
-close(;
+close;
 % hObject    handle to push_Exit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
