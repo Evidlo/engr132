@@ -1,35 +1,35 @@
-function varargout = Reaction_rates_graph(varargin)
-% REACTION_RATES_GRAPH MATLAB code for Reaction_rates_graph.fig
-%      REACTION_RATES_GRAPH, by itself, creates a new REACTION_RATES_GRAPH or raises the existing
+function varargout = NanoMelt_ksermers(varargin)
+% NANOMELT_KSERMERS MATLAB code for NanoMelt_ksermers.fig
+%      NANOMELT_KSERMERS, by itself, creates a new NANOMELT_KSERMERS or raises the existing
 %      singleton*.
 %
-%      H = REACTION_RATES_GRAPH returns the handle to a new REACTION_RATES_GRAPH or the handle to
+%      H = NANOMELT_KSERMERS returns the handle to a new NANOMELT_KSERMERS or the handle to
 %      the existing singleton*.
 %
-%      REACTION_RATES_GRAPH('CALLBACK',hObject,eventData,handles,...) calls the local
-%      function named CALLBACK in REACTION_RATES_GRAPH.M with the given input arguments.
+%      NANOMELT_KSERMERS('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in NANOMELT_KSERMERS.M with the given input arguments.
 %
-%      REACTION_RATES_GRAPH('Property','Value',...) creates a new REACTION_RATES_GRAPH or raises the
+%      NANOMELT_KSERMERS('Property','Value',...) creates a new NANOMELT_KSERMERS or raises the
 %      existing singleton*.  Starting from the left, property value pairs are
-%      applied to the GUI before Reaction_rates_graph_OpeningFcn gets called.  An
+%      applied to the GUI before NanoMelt_ksermers_OpeningFcn gets called.  An
 %      unrecognized property name or invalid value makes property application
-%      stop.  All inputs are passed to Reaction_rates_graph_OpeningFcn via varargin.
+%      stop.  All inputs are passed to NanoMelt_ksermers_OpeningFcn via varargin.
 %
 %      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
 %      instance to run (singleton)".
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
 
-% Edit the above text to modify the response to help Reaction_rates_graph
+% Edit the above text to modify the response to help NanoMelt_ksermers
 
-% Last Modified by GUIDE v2.5 02-Apr-2014 18:29:53
+% Last Modified by GUIDE v2.5 09-Apr-2014 20:21:45
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
                    'gui_Singleton',  gui_Singleton, ...
-                   'gui_OpeningFcn', @Reaction_rates_graph_OpeningFcn, ...
-                   'gui_OutputFcn',  @Reaction_rates_graph_OutputFcn, ...
+                   'gui_OpeningFcn', @NanoMelt_ksermers_OpeningFcn, ...
+                   'gui_OutputFcn',  @NanoMelt_ksermers_OutputFcn, ...
                    'gui_LayoutFcn',  [] , ...
                    'gui_Callback',   []);
 if nargin && ischar(varargin{1})
@@ -44,26 +44,26 @@ end
 % End initialization code - DO NOT EDIT
 
 
-% --- Executes just before Reaction_rates_graph is made visible.
-function Reaction_rates_graph_OpeningFcn(hObject, eventdata, handles, varargin)
+% --- Executes just before NanoMelt_ksermers is made visible.
+function NanoMelt_ksermers_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% varargin   command line arguments to Reaction_rates_graph (see VARARGIN)
+% varargin   command line arguments to NanoMelt_ksermers (see VARARGIN)
 
-% Choose default command line output for Reaction_rates_graph
+% Choose default command line output for NanoMelt_ksermers
 handles.output = hObject;
 
 % Update handles structure
 guidata(hObject, handles);
 
-% UIWAIT makes Reaction_rates_graph wait for user response (see UIRESUME)
+% UIWAIT makes NanoMelt_ksermers wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
 
 % --- Outputs from this function are returned to the command line.
-function varargout = Reaction_rates_graph_OutputFcn(hObject, eventdata, handles) 
+function varargout = NanoMelt_ksermers_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -73,9 +73,30 @@ function varargout = Reaction_rates_graph_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 
+% --- Executes on button press in push_Main_Menu.
+function push_Main_Menu_Callback(hObject, eventdata, handles)
+% hObject    handle to push_Main_Menu (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in push_Previous.
+function push_Previous_Callback(hObject, eventdata, handles)
+% hObject    handle to push_Previous (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in push_Exit.
+function push_Exit_Callback(hObject, eventdata, handles)
+% hObject    handle to push_Exit (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
 % --- Executes on slider movement.
-function slider1_Callback(hObject, eventdata, handles)
-% hObject    handle to slider1 (see GCBO)
+function slide_Radius_Callback(hObject, eventdata, handles)
+% hObject    handle to slide_Radius (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
@@ -84,8 +105,8 @@ function slider1_Callback(hObject, eventdata, handles)
 
 
 % --- Executes during object creation, after setting all properties.
-function slider1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to slider1 (see GCBO)
+function slide_Radius_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to slide_Radius (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -95,58 +116,8 @@ if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColo
 end
 
 
-% --- Executes on button press in togglebutton1.
-function togglebutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton1
-
-
-% --- Executes on button press in togglebutton2.
-function togglebutton2_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton2
-
-
-% --- Executes on button press in togglebutton3.
-function togglebutton3_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton3 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton3
-
-
-% --- Executes on button press in togglebutton4.
-function togglebutton4_Callback(hObject, eventdata, handles)
-% hObject    handle to togglebutton4 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of togglebutton4
-
-
-% --- Executes on button press in pushbutton1.
-function pushbutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes on button press in pushbutton2.
-function pushbutton2_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-
-% --- Executes on button press in pushbutton3.
-function pushbutton3_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton3 (see GCBO)
+% --- Executes on button press in push_Graph.
+function push_Graph_Callback(hObject, eventdata, handles)
+% hObject    handle to push_Graph (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
