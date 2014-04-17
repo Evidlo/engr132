@@ -29,12 +29,12 @@
 * Exit - right
 
 ## M7 Todo
-* main gui needs team member names shown
+* add textbox with the programmer name in each of the team member GUI's
+* add this header to each of your .m files
+
 * the simulations should do 'something'
 	* all user inputs should be working
   * if you haven't worked out the math for your simulation, plot something simple as a placeholder
-* add textbox with the programmer name in each of the team member GUI's
-* add this header to each of your .m files
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ENGR 13200 Spring 2014
