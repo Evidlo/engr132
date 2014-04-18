@@ -1,4 +1,23 @@
 function varargout = NanoSizeIntro_nluehrs(varargin)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% ENGR 13200 Spring 2014 
+% Programmer(s) and Purdue Email Address(es): 
+% 1. Nelson Luehrs, nluehrs@purdue.edu 
+% 
+% Other Contributor(s) and Purdue Email Address(es): 
+% 1.none
+% 
+% Section #:005 Team #:18 
+% Assignment: nanoHUB Project 
+% 
+% Academic Integrity Statement: 
+% I/We have not used source code obtained from 
+% any other unauthorized source, either modified 
+% or unmodified. Neither have I/we provided access 
+% to my/our code to another. The project I/we am/are 
+% submitting is my/our own original work. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
 % NANOSIZEINTRO_NLUEHRS MATLAB code for NanoSizeIntro_nluehrs.fig
 %      NANOSIZEINTRO_NLUEHRS, by itself, creates a new NANOSIZEINTRO_NLUEHRS or raises the existing
 %      singleton*.

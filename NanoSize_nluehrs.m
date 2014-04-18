@@ -1,4 +1,23 @@
 function varargout = NanoSize_nluehrs(varargin)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% ENGR 13200 Spring 2014 
+% Programmer(s) and Purdue Email Address(es): 
+% 1. Nelson Luehrs, nluehrs@purdue.edu 
+% 
+% Other Contributor(s) and Purdue Email Address(es): 
+% 1.none 
+% 
+% Section #:005 Team #:18 
+% Assignment: nanoHUB Project 
+% 
+% Academic Integrity Statement: 
+% I/We have not used source code obtained from 
+% any other unauthorized source, either modified 
+% or unmodified. Neither have I/we provided access 
+% to my/our code to another. The project I/we am/are 
+% submitting is my/our own original work. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
 % NANOSIZE_NLUEHRS MATLAB code for NanoSize_nluehrs.fig
 %      NANOSIZE_NLUEHRS, by itself, creates a new NANOSIZE_NLUEHRS or raises the existing
 %      singleton*.
@@ -22,7 +41,7 @@ function varargout = NanoSize_nluehrs(varargin)
 
 % Edit the above text to modify the response to help NanoSize_nluehrs
 
-% Last Modified by GUIDE v2.5 09-Apr-2014 22:11:37
+% Last Modified by GUIDE v2.5 18-Apr-2014 15:24:13
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
