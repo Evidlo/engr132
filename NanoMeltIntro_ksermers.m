@@ -1,4 +1,23 @@
 function varargout = NanoMeltIntro_ksermers(varargin)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% ENGR 13200 Spring 2014 
+% Programmer(s) and Purdue Email Address(es): 
+% 1. Kurt Sermersheim, ksermers@purdue.edu 
+% 
+% Other Contributor(s) and Purdue Email Address(es): 
+% 1. Name login@purdue.edu 
+% 
+% Section #: 005 Team #: 18
+% Assignment: nanoHUB Project 
+% 
+% Academic Integrity Statement: 
+% I/We have not used source code obtained from 
+% any other unauthorized source, either modified 
+% or unmodified. Neither have I/we provided access 
+% to my/our code to another. The project I/we am/are 
+% submitting is my/our own original work. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
 %NANOMELTINTRO_KSERMERS M-file for NanoMeltIntro_ksermers.fig
 %      NANOMELTINTRO_KSERMERS, by itself, creates a new NANOMELTINTRO_KSERMERS or raises the existing
 %      singleton*.
@@ -55,7 +74,8 @@ function NanoMeltIntro_ksermers_OpeningFcn(hObject, eventdata, handles, varargin
 
 % Choose default command line output for NanoMeltIntro_ksermers
 handles.output = hObject;
-
+axes(handles.plot_Image)
+imshow('nanocubes.jpg')
 % Update handles structure
 guidata(hObject, handles);
 

@@ -1,4 +1,23 @@
 function varargout = NanoMelt_ksermers(varargin)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% ENGR 13200 Spring 2014 
+% Programmer(s) and Purdue Email Address(es): 
+% 1. Kurt Sermersheim, ksermers@purdue.edu 
+% 
+% Other Contributor(s) and Purdue Email Address(es): 
+% 1. Name login@purdue.edu 
+% 
+% Section #: 005 Team #: 18 
+% Assignment: nanoHUB Project 
+% 
+% Academic Integrity Statement: 
+% I/We have not used source code obtained from 
+% any other unauthorized source, either modified 
+% or unmodified. Neither have I/we provided access 
+% to my/our code to another. The project I/we am/are 
+% submitting is my/our own original work. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
 % NANOMELT_KSERMERS MATLAB code for NanoMelt_ksermers.fig
 %      NANOMELT_KSERMERS, by itself, creates a new NANOMELT_KSERMERS or raises the existing
 %      singleton*.
