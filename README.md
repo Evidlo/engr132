@@ -30,33 +30,36 @@
 
 ## M7 Todo
 * add textbox with the programmer name in each of the team member GUI's
-* add this header to each of your .m files
+* in text citations for pictures
+* left justified apa citations for citations page
 
 * the simulations should do 'something'
 	* all user inputs should be working
   * if you haven't worked out the math for your simulation, plot something simple as a placeholder
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ENGR 13200 Spring 2014
-% Programmer(s) and Purdue Email Address(es):
-% 1. Name, login@purdue.edu
-%
-% Other Contributor(s) and Purdue Email Address(es):
-% 1. Name
-login@purdue.edu
-%
-% Section #: Team #:
-% Assignment:
-nanoHUB Project
-%
-% Academic Integrity Statement:
-% I/We have not used source code obtained from
-% any other unauthorized source, either modified
-% or unmodified. Neither have
-I/we provided access
-% to my/our code to another. The project I/we am/are
-% submitting is my/our own original work.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+* add this header to each of your .m files
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% ENGR 13200 Spring 2014
+	% Programmer(s) and Purdue Email Address(es):
+	% 1. Name, login@purdue.edu
+	%
+	% Other Contributor(s) and Purdue Email Address(es):
+	% 1. Name
+	login@purdue.edu
+	%
+	% Section #: Team #:
+	% Assignment:
+	nanoHUB Project
+	%
+	% Academic Integrity Statement:
+	% I/We have not used source code obtained from
+	% any other unauthorized source, either modified
+	% or unmodified. Neither have
+	I/we provided access
+	% to my/our code to another. The project I/we am/are
+	% submitting is my/our own original work.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 * convert all citations in APA - do your own citations and bring it to the next meeting
 * begin thinking about the executive summary (due M9)
