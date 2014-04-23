@@ -41,7 +41,7 @@ function varargout = NanoSize_nluehrs(varargin)
 
 % Edit the above text to modify the response to help NanoSize_nluehrs
 
-% Last Modified by GUIDE v2.5 18-Apr-2014 15:24:13
+% Last Modified by GUIDE v2.5 23-Apr-2014 03:27:41
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -80,6 +80,29 @@ guidata(hObject, handles);
 % UIWAIT makes NanoSize_nluehrs wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
+set(handles.push_next, 'enable', 'off');            %disable next button til start is clicked
+set(handles.static_help, 'string', 'Click Start!'); %prompts the user to click start
+
+%Plot rivets as circles
+fltrivet = @(x) sqrt(.25 - (x + 1) .^ 2);       %function for the top of the left rivet
+flbrivet = @(x) -sqrt(.25 - (x + 1) .^ 2);      %function for the bottom of the left rivet
+frtrivet = @(x) sqrt(.25 - (x - 1) .^ 2);       %function for the top of the right rivet
+frbrivet = @(x) -sqrt(.25 - (x - 1) .^ 2);      %function for the bottom of the right rivet
+
+axes(handles.plot_nanosize);                    %selects plot
+hold on;
+fplot(fltrivet, [-1.5 -.5], 'k');               %plot above funtcions
+fplot(flbrivet, [-1.5 -.5], 'k');
+fplot(frtrivet, [.5 1.5], 'k');
+fplot(frbrivet, [.5 1.5], 'k');
+
+%plot line connecting them for visual reference
+rivets_x = [-1 1];                              %x-coor of rivets
+rivets_y = [0 0];                               %y-coor of rivets
+plot(rivets_x, rivets_y, 'k-');                 %plots line
+axis([-3 3 -1.5 1.5]);                          %set and label axes to keep plot looking nice
+xlabel('Centimeters');
+ylabel('Centimeters');
 
 % --- Outputs from this function are returned to the command line.
 function varargout = NanoSize_nluehrs_OutputFcn(hObject, eventdata, handles) 
@@ -114,3 +137,71 @@ function push_mainmenu_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 nanohubGUI_sec005_team18;
 close(NanoSize_nluehrs);
+
+
+% --- Executes on button press in push_next.
+function push_next_Callback(hObject, eventdata, handles)
+% hObject    handle to push_next (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.push_start, 'string', 'Start');             %changes the retry button back to the start button
+set(handles.static_result, 'string', ' ');              %erases the distance from the previous click
+set(handles.static_help, 'string', 'Click Start!');     %prompts the user to start
+set(handles.push_next, 'enable', 'off');                %disables the next button until the user clicks start
+
+%bring up the next plot
+currentplot = get(handles.static_title, 'string');      %grabs the name of the plot that is currently being used
+axes(handles.plot_nanosize);
+hold off;
+
+if currentplot == 'Rivets'
+    %plot concentric circles that symbolize carbon nanotubes
+    fittube = @(x) sqrt(1 - x .^ 2);                    %creates function for top of inner nanotube
+    fibtube = @(x) -sqrt(1 - x .^ 2);                   %creates function for bottom of inner nanotube
+    fottube = @(x) sqrt((1.36 ^ 2) - x .^ 2);           %creates function for top of outer nanotube
+    fobtube = @(x) -sqrt((1.36 ^ 2) - x .^ 2);          %creates function for bottom of outer nanotube
+    
+    fplot(fittube, [-1 1], 'k');
+    hold on
+    fplot(fibtube, [-1 1], 'k');
+    fplot(fottube, [-1.36 1.36], 'k');
+    fplot(fobtube, [-1.36 1.36], 'k');
+    %set directions to match, format plot and title
+    
+elseif currentplot == 'Carbon Nanotubes'
+    %plot hexagon that symbolizes graphene molecule
+        
+end
+
+
+% --- Executes on button press in push_retry.
+function push_retry_Callback(hObject, eventdata, handles)
+% hObject    handle to push_retry (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in push_start.
+function push_start_Callback(hObject, eventdata, handles)
+% hObject    handle to push_start (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.static_help, 'string', 'CLICK IN THE CENTER, THEN HIT ENTER')   %prompts the user to click the plot
+set(handles.push_next, 'enable', 'on');                                     %enables the next button
+
+[x, y] = ginput;                                                            %function that takes in mouse clicks
+distance = sqrt((x(end)) ^ 2 + (y(end)) ^ 2);                               %calulates distance from the origin, and the center between the rivets
+distance = distance * 1e7;                                                  %converts from cm to nm
+diststr = num2str(distance);                                                %converts from number to string
+set(handles.static_result, 'string', diststr)                               %displays result
+
+if distance >= .25 * 1e7                                                    %if the user clicks an obscene distance from the center, they are told to try harder
+    set(handles.static_help, 'string', 'Come on, at least try!!');
+else                                                                        %otherwise they are prompted to continue
+    set(handles.static_help, 'string', 'Click Next');
+end
+
+set(handles.push_start, 'string', 'Retry');                                 %changes start button to a retry button
+
+
+
