@@ -79,7 +79,7 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in push_exit.
 function push_exit_Callback(hObject, eventdata, handles)
-close
+close(NanoPlaneIntro_ewidlosk)
 % hObject    handle to push_exit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -87,7 +87,7 @@ close
 % --- Executes on button press in push_menu.
 function push_menu_Callback(hObject, eventdata, handles)
 nanohubGUI_sec005_team18;
-close
+close(NanoPlaneIntro_ewidlosk)
 % hObject    handle to push_menu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
