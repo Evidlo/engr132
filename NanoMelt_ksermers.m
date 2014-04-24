@@ -126,8 +126,10 @@ function slide_Radius_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-Radius = get(handles.slide_Radius, 'value');
-guidata(hObject, handles);
+
+%radius = get(handles.slide_Radius, 'value');
+
+
 
 
 
@@ -155,40 +157,45 @@ function bgroup_Material_SelectionChangeFcn(hObject, eventdata, handles)
 %	OldValue: handle of the previously selected object or empty if none was selected
 %	NewValue: handle of the currently selected object
 % handles    structure with handles and user data (see GUIDATA)
-gold = get(handle.radio_Gold, 'value');
-alum = get(handle.radio_Aluminum, 'value');
-copper = get(handle.radio_Copper, 'value');
-titanium = get(handle.radio_Titanium, 'value');
 
-if gold
-    spec_heat = .126;
-    heat_fus = 63.7;
-    Temp_change = 3243;
-    density = 19320;
-    melt_point = 1337;
-end
-if alum
-    spec_heat = .91;
-    heat_fus = 397;
-    Temp_change = 2792;
-    density = 2712;
-    melt_point = 933;
-end
-if copper
-    spec_heat = .39;
-    heat_fus = 209;
-    Temp_change = 2835;
-    density = 8940;
-    melt_point = 1358;
-end
-if titanium
-    spec_heat = .54;
-    heat_fus = 296;
-    Temp_change = 3560;
-    density = 4500;
-    melt_point = 1941;
-end
-guidata(hObject, handles);
+
+% gold = get(handle.radio_Gold, 'value');
+% alum = get(handle.radio_Aluminum, 'value');
+% copper = get(handle.radio_Copper, 'value');
+% titanium = get(handle.radio_Titanium, 'value');
+% 
+% 
+% if gold
+%    spec_heat = .126;
+%    heat_fus = 63.7;
+%    Temp_change = 3243;
+%    density = 19320;
+%    melt_point = 1337;
+% end
+% if alum
+%    spec_heat = .91;
+%    heat_fus = 397;
+%    Temp_change = 2792;
+%    density = 2712;
+%    melt_point = 933;
+% end
+% if copper
+%    spec_heat = .39;
+%     heat_fus = 209;
+%     Temp_change = 2835;
+%     density = 8940;
+%     melt_point = 1358;
+% end
+% if titanium
+%     spec_heat = .54;
+%     heat_fus = 296;
+%     Temp_change = 3560;
+%     density = 4500;
+%     melt_point = 1941;
+% end
+
+
+
 
 
 % --- Executes on button press in push_Graph.
@@ -196,23 +203,29 @@ function push_Graph_Callback(hObject, eventdata, handles)
 % hObject    handle to push_Graph (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-radius = get(handles.Radius, 'value');
-density = get(handles.density, 'value');
-spec_heat = get(handles.spec_heat, 'value');
-melt_point = get(handles.melt_point, 'value');
-heat_fus = get(handles.heat_fus, 'value');
-Temp_change = get(handles.Temp_change, 'value');
 
-radius = radius * pow(10, -6);
-mass = (4/3) * pi * pow(radius,3) * density;
-t1 = mass * spec_heat * melt_point;
-t2 = mass * heat_fus;
-t3 = mass * spec_heat * (Temp_change - melt_point);
+% radius = get(handles.Radius, 'value');
+% density = get(handles.density, 'value');
+% spec_heat = get(handles.spec_heat, 'value');
+% melt_point = get(handles.melt_point, 'value');
+% heat_fus = get(handles.heat_fus, 'value');
+% Temp_change = get(handles.Temp_change, 'value');
 
-x = [0, t1, t2, t3];
-y = [0, melt_point, melt_point, Temp_change];
+radius = get(handles.slide_Radius, 'value');
 
-axes(handles.plot_Phase_Change)
+
+% radius = radius * 10.^-6;
+% mass = (4/3) * pi * radius * radius * radius * density;
+% t1 = mass * spec_heat * melt_point;
+% t2 = mass * heat_fus;
+% t3 = mass * spec_heat * (Temp_change - melt_point);
+% 
+% x = [0, t1, t2, t3];
+% y = [0, melt_point, melt_point, Temp_change];
+x = 0:.1:10;
+y = x.^2;
+
+axes(handles.plot_Phase_change)
 plot(x,y);
 
 
