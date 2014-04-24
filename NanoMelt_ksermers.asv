@@ -126,9 +126,8 @@ function slide_Radius_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-Radius = get(handles.slide_Radius, 'value');
-guidata(hObject, handles);
-
+radius = get(handles.slide_Radius, 'value');
+radius = radius * pow(10, -6);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -143,7 +142,24 @@ if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColo
 end
 
 
+% --- Executes on button press in push_Graph.
+function push_Graph_Callback(hObject, eventdata, handles)
+% hObject    handle to push_Graph (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+radius = get(handles.radius, 'value');
+density = get(handles.density, 'value');
+spec_heat = get(handles.spec
+mass = (4/3) * pi * pow(radius,3) * density;
+t1 = mass * spec_heat * melt_point;
+t2 = mass * heat_fus;
+t3 = mass * spec_heat * (Temp_change - melt_point);
 
+x = [0, t1, t2, t3];
+y = [0, melt_point, melt_point, Temp_change];
+
+axes(handles.plot_Phase_Change)
+plot(x,y);
 
 
 
@@ -188,31 +204,6 @@ if titanium
     density = 4500;
     melt_point = 1941;
 end
-guidata(hObject, handles);
 
-
-% --- Executes on button press in push_Graph.
-function push_Graph_Callback(hObject, eventdata, handles)
-% hObject    handle to push_Graph (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-radius = get(handles.Radius, 'value');
-density = get(handles.density, 'value');
-spec_heat = get(handles.spec_heat, 'value');
-melt_point = get(handles.melt_point, 'value');
-heat_fus = get(handles.heat_fus, 'value');
-Temp_change = get(handles.Temp_change, 'value');
-
-radius = radius * pow(10, -6);
-mass = (4/3) * pi * pow(radius,3) * density;
-t1 = mass * spec_heat * melt_point;
-t2 = mass * heat_fus;
-t3 = mass * spec_heat * (Temp_change - melt_point);
-
-x = [0, t1, t2, t3];
-y = [0, melt_point, melt_point, Temp_change];
-
-axes(handles.plot_Phase_Change)
-plot(x,y);
 
 

@@ -74,8 +74,8 @@ function NanoMeltIntro_ksermers_OpeningFcn(hObject, eventdata, handles, varargin
 
 % Choose default command line output for NanoMeltIntro_ksermers
 handles.output = hObject;
-axes(handles.plot_Image) %location of image
-imshow('nanocubes.jpg') %image to print
+axes(handles.plot_Image) %te
+imshow('nanocubes.jpg')
 % Update handles structure
 guidata(hObject, handles);
 
