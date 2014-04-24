@@ -1,25 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  ENGR 13200 Spring 2014
-%  Programmer(s) and Purdue Email Address(es):
-%  1. Jaccob Hallow, hallowj@purdue.edu
-% 
-% 
-% Section #:005 Team #:18
-% Assignment:
-%   nanoHUB Project
-% 
-%  Academic Integrity Statement:
-% 
-% I/We have not used source code obtained from
-% any other unauthorized source, either modified
-% or unmodified. Neither have
-% I/we provided access
-% to my/our code to another. The project I/we am/are
-% submitting is my/our own original work.
-% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function varargout = NanoEnergy_hallowj(varargin)
+
 %NANOENERGY_HALLOWJ M-file for NanoEnergy_hallowj.fig
 %      NANOENERGY_HALLOWJ, by itself, creates a new NANOENERGY_HALLOWJ or raises the existing
 %      singleton*.
