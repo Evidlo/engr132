@@ -122,5 +122,5 @@ function push_cite_Callback(hObject, eventdata, handles)
 % hObject    handle to push_cite (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-citationGUI_sec005_team18;
+citationsGUI_sec005_team18;
 close(nanohubGUI_sec005_team18);
