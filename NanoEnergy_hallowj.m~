@@ -106,11 +106,10 @@ function edit_Nanoparticle_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of edit_Nanoparticle as text
 %        str2double(get(hObject,'String')) returns contents of edit_Nanoparticle as a double
-if(str2num(get(handles.edit_Nanoparticle, 'string')) <= 0)
+if(get(handles.edit_Nanoparticle, 'value') <= 0)
     set(handles.text_error_neg, 'Visible', 'on')
-    cla(handles.plot_CoEnergy)
 else
-    set(handles.text_error_neg, 'Visible', 'off')
+    set(handles.text_error_neg, 'Visible', 'on')
 end
 
 
@@ -222,12 +221,12 @@ function push_Graph_Callback(hObject, eventdata, handles)
 % hObject    handle to push_Graph (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-set(handles.text_error_metal, 'Visible', 'off')
 a = get(handles.radio_Silicon, 'value');
 b = get(handles.radio_Copper, 'value');
 c = get(handles.radio_Manganese, 'value');
 d = get(handles.radio_Aluminum, 'value');
 if((a == 1) || (b == 1) || (c == 1) || (d == 1))
+    set(handles.text_error_metal, 'Visible', 'off')
     if(a == 1)
         Eb = 446;
         d = .222;
@@ -256,6 +255,5 @@ if((a == 1) || (b == 1) || (c == 1) || (d == 1))
     ylabel('Cohesive Energy (kj/mol)')
 else
     set(handles.text_error_metal, 'Visible', 'on')
-    cla(handles.plot_CoEnergy)
 end
 
