@@ -1,3 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ght:50px;width:100%;background-color:grey;bottom:0px;%
+%  ENGR 13200 Spring 2014
+%  Programmer(s) and Purdue Email Address(es):
+%  1. Name ewidlosk@purdue.edu
+%
+%  Other Contributor(s) and Purdue Email Address(es):
+%  1. Name login@purdue.edu
+%
+%  Section #: 005     Team #: 18
+%
+%  Assignment #: M7
+%
+%  Academic Integrity Statement:
+%
+%       I/we have not used source code obtained from
+%       any other unauthorized source, either modified
+%       or unmodified.  Neither have I/we provided access
+%       to my/our code to another. The project I/we am/are submitting
+%       is my/our own original work.
+%
+%  Program Description:  Simulate airplane takeoff given wing density in
+%  hypothetical design situation
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function varargout = NanoPlane_ewidlosk(varargin)
 % NANOPLANE_EWIDLOSK MATLAB code for NanoPlane_ewidlosk.fig
 %      NANOPLANE_EWIDLOSK, by itself, creates a new NANOPLANE_EWIDLOSK or raises the existing
@@ -22,7 +47,7 @@ function varargout = NanoPlane_ewidlosk(varargin)
 
 % Edit the above text to modify the response to help NanoPlane_ewidlosk
 
-% Last Modified by GUIDE v2.5 09-Apr-2014 21:22:48
+% Last Modified by GUIDE v2.5 23-Apr-2014 20:46:58
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -54,6 +79,7 @@ function NanoPlane_ewidlosk_OpeningFcn(hObject, eventdata, handles, varargin)
 
 % Choose default command line output for NanoPlane_ewidlosk
 handles.output = hObject;
+updateTags(handles);
 
 % Update handles structure
 guidata(hObject, handles);
@@ -81,7 +107,7 @@ function menu_plane_Callback(hObject, eventdata, handles)
 
 % Hints: contents = cellstr(get(hObject,'String')) returns menu_plane contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from menu_plane
-
+updateTags(handles);
 
 % --- Executes during object creation, after setting all properties.
 function menu_plane_CreateFcn(hObject, eventdata, handles)
@@ -101,6 +127,25 @@ function push_takeoff_Callback(hObject, eventdata, handles)
 % hObject    handle to push_takeoff (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+updateTags(handles);
+
+handles
+set(hObject,'String','Simulating');
+set(handles.static_tip,'String','Simulating!!!');
+x = 0:.1:10;
+y = x.^2;
+xmin = min(x);xmax = max(x);ymin = min(y);ymax = max(y);
+axes(handles.plot_tension)
+
+for n = 1:length(x)
+    set(handles.static_runtime,'String',num2str(x(n)));
+    plot(x(1:n),y(1:n));
+    axis([xmin xmax ymin ymax]);
+    pause(.05)
+end
+numtimes = 1;
+fps = 5;
+set(hObject,'String','Start Takeoff!');
 
 
 % --- Executes on button press in push_exit.
@@ -119,6 +164,8 @@ function slide_truss_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
+updateTags(handles);
+
 
 
 % --- Executes during object creation, after setting all properties.
@@ -150,3 +197,19 @@ close(NanoPlane_ewidlosk);
 % hObject    handle to push_menu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+% update all static tags with plane data
+function updateTags(handles)
+contents = cellstr(get(handles.menu_plane,'String'));
+if strcmp(contents{get(handles.menu_plane,'Value')},'Cessna')
+    handles.mass_factor = 1;
+else
+    handles.mass_factor = 2;
+end
+handles.truss_length = 10^-(10*get(handles.slide_truss,'Value'));
+handles.wing_mass = 1 / handles.truss_length;
+handles.wing_strength = 1/ handles.truss_length;
+set(handles.static_truss,'String',strcat(num2str(handles.truss_length),' m'));
+set(handles.static_mass,'String',strcat(num2str(handles.wing_mass * handles.mass_factor),' kg'));
+set(handles.static_strength,'String',strcat(num2str(handles.wing_strength),' GPa'));
