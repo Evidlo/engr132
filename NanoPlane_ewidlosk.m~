@@ -79,7 +79,7 @@ function NanoPlane_ewidlosk_OpeningFcn(hObject, eventdata, handles, varargin)
 
 % Choose default command line output for NanoPlane_ewidlosk
 handles.output = hObject;
-updateTags(handles); %update all textbox info
+updateTags(handles);
 
 % Update handles structure
 guidata(hObject, handles);
@@ -127,31 +127,29 @@ function push_takeoff_Callback(hObject, eventdata, handles)
 % hObject    handle to push_takeoff (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-updateTags(handles); %update all textbox info
+updateTags(handles);
 
-set(hObject,'String','Simulating');  %set button text
-set(handles.static_tip,'String','Simulating!!!');  %change tip information
-
-%set up plot data
+set(hObject,'String','Simulating');
+set(handles.static_tip,'String','Simulating!!!');
 x = 0:.1:10;
 y = x.^2;
 xmin = min(x);xmax = max(x);ymin = min(y);ymax = max(y);
 axes(handles.plot_tension)
 
-%create snapshots of plot
 for n = 1:length(x)
     set(handles.static_runtime,'String',num2str(x(n)));
     plot(x(1:n),y(1:n));
     axis([xmin xmax ymin ymax]);
     pause(.05)
 end
-
-set(hObject,'String','Start Takeoff!'); %reset button tag
+numtimes = 1;
+fps = 5;
+set(hObject,'String','Start Takeoff!');
 
 
 % --- Executes on button press in push_exit.
 function push_exit_Callback(hObject, eventdata, handles)
-close %close current gui
+close
 % hObject    handle to push_exit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -165,7 +163,7 @@ function slide_truss_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
-updateTags(handles);  %update all textbox info
+updateTags(handles);
 
 
 
@@ -183,8 +181,8 @@ end
 
 % --- Executes on button press in push_previous.
 function push_previous_Callback(hObject, eventdata, handles)
-NanoPlaneIntro_ewidlosk;    %launch next page
-close(NanoPlane_ewidlosk);  %close current gui
+NanoPlaneIntro_ewidlosk;
+close(NanoPlane_ewidlosk);
 
 % hObject    handle to push_previous (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -193,8 +191,8 @@ close(NanoPlane_ewidlosk);  %close current gui
 
 % --- Executes on button press in push_menu.
 function push_menu_Callback(hObject, eventdata, handles)
-nanohubGUI_sec005_team18;    %return to main
-close(NanoPlane_ewidlosk);   %close current gui
+nanohubGUI_sec005_team18;
+close(NanoPlane_ewidlosk);
 % hObject    handle to push_menu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)

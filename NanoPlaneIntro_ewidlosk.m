@@ -53,8 +53,8 @@ function NanoPlaneIntro_ewidlosk_OpeningFcn(hObject, eventdata, handles, varargi
 % varargin   unrecognized PropertyName/PropertyValue pairs from the
 %            command line (see VARARGIN)
 
-axes(handles.plot_tension)
-imshow('img/nanoplane.png')
+axes(handles.plot_tension);
+imshow('img/nanoplane.png');
 
 % Choose default command line output for NanoPlaneIntro_ewidlosk
 handles.output = hObject;
@@ -79,7 +79,7 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in push_exit.
 function push_exit_Callback(hObject, eventdata, handles)
-close
+close;;
 % hObject    handle to push_exit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -87,7 +87,7 @@ close
 % --- Executes on button press in push_menu.
 function push_menu_Callback(hObject, eventdata, handles)
 nanohubGUI_sec005_team18;
-close
+close(NanoPlaneIntro_ewidlosk);
 % hObject    handle to push_menu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
