@@ -1,3 +1,5 @@
+
+function varargout = NanoEnergy_hallowj(varargin)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  ENGR 13200 Spring 2014
 %  Programmer(s) and Purdue Email Address(es):
@@ -19,7 +21,6 @@
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function varargout = NanoEnergy_hallowj(varargin)
 %NANOENERGY_HALLOWJ M-file for NanoEnergy_hallowj.fig
 %      NANOENERGY_HALLOWJ, by itself, creates a new NANOENERGY_HALLOWJ or raises the existing
 %      singleton*.

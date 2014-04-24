@@ -1,3 +1,4 @@
+function varargout = NanoEnergyIntro_hallowj(varargin)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  ENGR 13200 Spring 2014
 %  Programmer(s) and Purdue Email Address(es):
@@ -19,7 +20,6 @@
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function varargout = NanoEnergyIntro_hallowj(varargin)
 % NANOENERGYINTRO_HALLOWJ MATLAB code for NanoEnergyIntro_hallowj.fig
 %      NANOENERGYINTRO_HALLOWJ, by itself, creates a new NANOENERGYINTRO_HALLOWJ or raises the existing
 %      singleton*.
