@@ -47,7 +47,7 @@ function varargout = NanoPlane_ewidlosk(varargin)
 
 % Edit the above text to modify the response to help NanoPlane_ewidlosk
 
-% Last Modified by GUIDE v2.5 23-Apr-2014 20:46:58
+% Last Modified by GUIDE v2.5 29-Apr-2014 15:01:10
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -129,23 +129,67 @@ function push_takeoff_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 updateTags(handles);
 
-handles
+
+contents = cellstr(get(handles.menu_plane,'String'));
+if strcmp(contents{get(handles.menu_plane,'Value')},'Cessna')
+    handles.mass_factor = 404;
+    takeoff = 10;
+else
+    handles.mass_factor = 333000;
+    takeoff = 16;
+end
+slider = get(handles.slide_truss,'Value');
+slider = slider + .1;
+handles.truss_length = 10^-(10*slider+8);
+handles.wing_mass = .01*handles.mass_factor*(slider) + .5 * handles.mass_factor/10000;
+handles.wing_strength = .01*handles.mass_factor*(2*slider)^2;
+set(handles.static_truss,'String',strcat(num2str(handles.truss_length),' m'));
+set(handles.static_mass,'String',strcat(num2str(handles.wing_mass),' kg'));
+set(handles.static_strength,'String',strcat(num2str(handles.wing_strength),' GPa'));
+
+
 set(hObject,'String','Simulating');
 set(handles.static_tip,'String','Simulating!!!');
-x = 0:.1:10;
-y = x.^2;
+res = .1;
+x = 0:res:takeoff;
+y_crit = zeros(length(x)) + handles.wing_strength;handles.wing_mass + handles.mass_factor
+y = exp(-(x+slider)).*(x).^(2+slider*.5).*(handles.wing_mass);
 xmin = min(x);xmax = max(x);ymin = min(y);ymax = max(y);
 axes(handles.plot_tension)
 
-for n = 1:length(x)
+handles.wing_strength
+success = 1;
+
+c=[];
+[r c] = find(y>y_crit(1));
+c = c.*res;
+endtime = 10;
+if length(c) > 0
+    if c(1) < endtime
+     endtime = c(1);
+     success = 0;
+    end
+end
+
+plot(x,y_crit,'r-');
+hold on
+
+for n = 1:endtime/res
     set(handles.static_runtime,'String',num2str(x(n)));
     plot(x(1:n),y(1:n));
-    axis([xmin xmax ymin ymax]);
+    ylabel('Wing Tension (GPa)');
+    xlabel('Time');
+    axis([xmin xmax 0 handles.wing_strength*1.25]);
     pause(.05)
 end
-numtimes = 1;
-fps = 5;
+
 set(hObject,'String','Start Takeoff!');
+if success == 0
+    set(handles.static_tip,'String','Takeoff failed!  Your plane crashed!  Adjust the nanostructure size and try again.');
+else
+    set(handles.static_tip,'String','Congratulations!  You successfully balanced the gains in strength and total weight.');
+end
+hold off
 
 
 % --- Executes on button press in push_exit.
@@ -201,15 +245,20 @@ close(NanoPlane_ewidlosk);
 
 % update all static tags with plane data
 function updateTags(handles)
+
 contents = cellstr(get(handles.menu_plane,'String'));
 if strcmp(contents{get(handles.menu_plane,'Value')},'Cessna')
-    handles.mass_factor = 1;
+    handles.mass_factor = 404;
+    takeoff = 10;
 else
-    handles.mass_factor = 2;
+    handles.mass_factor = 333000;
+    takeoff = 16;
 end
-handles.truss_length = 10^-(10*get(handles.slide_truss,'Value'));
-handles.wing_mass = 1 / handles.truss_length;
-handles.wing_strength = 1/ handles.truss_length;
+slider = get(handles.slide_truss,'Value');
+slider = slider + .1;
+handles.truss_length = 10^-(10*slider+8);
+handles.wing_mass = .01*handles.mass_factor*(slider) + .5 * handles.mass_factor/10000;
+handles.wing_strength = .01*handles.mass_factor*(2*slider)^2;
 set(handles.static_truss,'String',strcat(num2str(handles.truss_length),' m'));
-set(handles.static_mass,'String',strcat(num2str(handles.wing_mass * handles.mass_factor),' kg'));
+set(handles.static_mass,'String',strcat(num2str(handles.wing_mass),' kg'));
 set(handles.static_strength,'String',strcat(num2str(handles.wing_strength),' GPa'));
