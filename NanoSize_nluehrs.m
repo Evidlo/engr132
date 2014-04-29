@@ -80,8 +80,12 @@ guidata(hObject, handles);
 % UIWAIT makes NanoSize_nluehrs wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
-set(handles.bgroup_plot, 'visible', 'off');            %disable next button til start is clicked
+set(handles.bgroup_plot, 'visible', 'off');         %disable radio buttons until start is clicked
 set(handles.static_help, 'string', 'Click Start!'); %prompts the user to click start
+
+%Set up conversion factor variable
+handles.conversion = 1e7;
+guidata(hObject, handles);
 
 %Plot rivets as circles
 fltrivet = @(x) sqrt(.25 - (x + 1) .^ 2);       %function for the top of the left rivet
@@ -153,15 +157,26 @@ function push_start_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.static_help, 'string', 'CLICK IN THE CENTER, THEN HIT ENTER')   %prompts the user to click the plot
-set(handles.bgroup_plot, 'visible', 'on');                                     %enables the next button
+set(handles.bgroup_plot, 'visible', 'on');                                  %enables the next button
+
+conversion = handles.conversion;                                            %retrieve conversion code
+
+%disable all buttons
+set(handles.push_previous, 'enable', 'off');
+set(handles.push_exit, 'enable', 'off');
+set(handles.push_mainmenu, 'enable', 'off');
+set(handles.radio_rivets, 'enable', 'off');
+set(handles.radio_tubes, 'enable', 'off');
+set(handles.radio_graphene, 'enable', 'off');
+set(handles.push_start, 'enable', 'off');
 
 [x, y] = ginput;                                                            %function that takes in mouse clicks
 distance = sqrt((x(end)) ^ 2 + (y(end)) ^ 2);                               %calulates distance from the origin, and the center between the rivets
-distance = distance * 1e7;                                                  %converts from cm to nm
+distance = distance * conversion;                                                  %converts from cm to nm
 diststr = num2str(distance);                                                %converts from number to string
 set(handles.static_result, 'string', diststr)                               %displays result
 
-if distance >= .25 * 1e7                                                    %if the user clicks an obscene distance from the center, they are told to try harder
+if distance >= .5 * conversion                                             %if the user clicks an obscene distance from the center, they are told to try harder
     set(handles.static_help, 'string', 'Come on, at least try!!');
 else                                                                        %otherwise they are prompted to continue
     set(handles.static_help, 'string', 'Click Next Plot Option');
@@ -169,6 +184,14 @@ end
 
 set(handles.push_start, 'string', 'Retry');                                 %changes start button to a retry button
 
+%re-enable all buttons
+set(handles.push_previous, 'enable', 'on');
+set(handles.push_exit, 'enable', 'on');
+set(handles.push_mainmenu, 'enable', 'on');
+set(handles.radio_rivets, 'enable', 'on');
+set(handles.radio_tubes, 'enable', 'on');
+set(handles.radio_graphene, 'enable', 'on');
+set(handles.push_start, 'enable', 'on');
 
 % --- Executes when selected object is changed in bgroup_plot.
 function bgroup_plot_SelectionChangeFcn(hObject, eventdata, handles)
@@ -217,6 +240,9 @@ if rivets
     ylabel('Centimeters');
     %Update Directions
     
+    %Update conversion factor
+    conversion = 1e7;
+    
 elseif tubes
     set(handles.static_help, 'string', 'Click Start!'); %prompts the user to click start
     
@@ -244,6 +270,9 @@ elseif tubes
     set(handles.static_directions1, 'string', 'Shown to the right is the end view of a double walled carbon nanotube. The inner tube has a radius of about 1 nanometer, and there is a space of .36 nm between the walls (Carbon Nanotubes 2013).');
     set(handles.static_directions2, 'string', 'Your goal is to click in the center of the nanotubes and then hit enter or return! Text will appear telling you how far off you were.');
     
+    %update conversion factor
+    conversion = 1;
+    
 elseif graphene
     set(handles.static_help, 'string', 'Click Start!'); %prompts the user to click start
     
@@ -268,11 +297,15 @@ elseif graphene
     %Úpdate Directions
     set(handles.static_directions1, 'string', 'Finally you have just the graphene molecule, six carbon atoms bound together, and the building block for carbon nanotubes. Each bond length shown at right is 0.142 nm in length. (Fuente)');
     set(handles.static_directions2, 'string', 'Your goal is to click in the center of the molecule and then hit enter or return! Text will appear telling you how far off you were.');    
-
+    
+    %Update conversion factor
+    conversion = 1;
+    
 end
 
-
-
+%Update handle of conversion factor
+handles.conversion = conversion;
+guidata(handles.bgroup_plot, handles);
 
 
 
