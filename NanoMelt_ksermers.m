@@ -142,9 +142,8 @@ function slide_Radius_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
-%radius = get(handles.slide_Radius, 'value');
-
-
+radius = get(handles.slide_Radius, 'value') * 1e-6;
+set(handles.static_Radius, 'string', radius);
 
 
 
@@ -210,19 +209,19 @@ elseif titanium
 end
 
 handles.spec_heat = spec_heat;
-guidata(bgroup_Material, handles);
+guidata(handles.bgroup_Material, handles);
 
 handles.heat_fus = heat_fus;
-guidata(bgroup_Material, handles);
+guidata(handles.bgroup_Material, handles);
 
 handles.Temp_change = Temp_change;
-guidata(bgroup_Material, handles);
+guidata(handles.bgroup_Material, handles);
 
 handles.density = density;
-guidata(bgroup_Material, handles);
+guidata(handles.bgroup_Material, handles);
 
 handles.melt_point = melt_point;
-guidata(bgroup_Material, handles);
+guidata(handles.bgroup_Material, handles);
 
 
 
