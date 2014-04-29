@@ -1,4 +1,3 @@
-
 function varargout = NanoEnergy_hallowj(varargin)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  ENGR 13200 Spring 2014
@@ -83,7 +82,7 @@ guidata(hObject, handles);
 
 % UIWAIT makes NanoEnergy_hallowj wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
-set(handles.text_error_neg, 'Visible', 'off')
+set(handles.text_error_neg, 'Visible', 'off') %makes error messages invisible
 set(handles.text_error_metal, 'Visible', 'off')
 
 
@@ -106,7 +105,7 @@ function edit_Nanoparticle_Callback(hObject, eventdata, handles)
 
 % Hints: get(hObject,'String') returns contents of edit_Nanoparticle as text
 %        str2double(get(hObject,'String')) returns contents of edit_Nanoparticle as a double
-if(str2num(get(handles.edit_Nanoparticle, 'string')) <= 0)
+if(str2num(get(handles.edit_Nanoparticle, 'string')) <= 0) %tests the input to determine if an errormessage is needed
     set(handles.text_error_neg, 'Visible', 'on')
     cla(handles.plot_CoEnergy)
 else
@@ -135,7 +134,7 @@ function radio_Aluminum_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of radio_Aluminum
-if(get(handles.radio_Aluminum, 'value') == 1)
+if(get(handles.radio_Aluminum, 'value') == 1) % turns off other buttons if Aluminum is selected
     set(handles.radio_Copper, 'value', 0)
     set(handles.radio_Manganese, 'value', 0)
     set(handles.radio_Silicon, 'value', 0)
@@ -149,7 +148,7 @@ function radio_Copper_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of radio_Copper
-if(get(handles.radio_Copper, 'value') == 1)
+if(get(handles.radio_Copper, 'value') == 1) %turns off other buttons if Copper is selected
     set(handles.radio_Aluminum, 'value', 0)
     set(handles.radio_Manganese, 'value', 0)
     set(handles.radio_Silicon, 'value', 0)
@@ -163,7 +162,7 @@ function radio_Manganese_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of radio_Manganese
-if(get(handles.radio_Manganese, 'value') == 1)
+if(get(handles.radio_Manganese, 'value') == 1) %turns off other buttons if Maganese is selected
     set(handles.radio_Copper, 'value', 0)
     set(handles.radio_Aluminum, 'value', 0)
     set(handles.radio_Silicon, 'value', 0)
@@ -177,7 +176,7 @@ function radio_Silicon_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of radio_Silicon
-if(get(handles.radio_Silicon, 'value') == 1)
+if(get(handles.radio_Silicon, 'value') == 1)%turns off other buttons if Silicon is selected
     set(handles.radio_Copper, 'value', 0)
     set(handles.radio_Manganese, 'value', 0)
     set(handles.radio_Aluminum, 'value', 0)
@@ -186,8 +185,8 @@ end
 
 % --- Executes on button press in push_MainMenu.
 function push_MainMenu_Callback(hObject, eventdata, handles)
-nanohubGUI_sec005_team18;
-close(NanoEnergy_hallowj);
+nanohubGUI_sec005_team18; % open main menu
+close(NanoEnergy_hallowj); % closes NanoEnergy GUI
 % hObject    handle to push_MainMenu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -202,8 +201,8 @@ function push_Next_Callback(hObject, eventdata, handles)
 
 % --- Executes on button press in push_Previous.
 function push_Previous_Callback(hObject, eventdata, handles)
-NanoEnergyIntro_hallowj;
-close(NanoEnergy_hallowj);
+NanoEnergyIntro_hallowj; % open previous page
+close(NanoEnergy_hallowj); % closes NanoEnergy GUI
 % hObject    handle to push_Previous (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -211,7 +210,7 @@ close(NanoEnergy_hallowj);
 
 % --- Executes on button press in push_Exit.
 function push_Exit_Callback(hObject, eventdata, handles)
-close(NanoEnergy_hallowj);
+close(NanoEnergy_hallowj);% closes GUI
 % hObject    handle to push_Exit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -223,11 +222,13 @@ function push_Graph_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.text_error_metal, 'Visible', 'off')
-a = get(handles.radio_Silicon, 'value');
-b = get(handles.radio_Copper, 'value');
-c = get(handles.radio_Manganese, 'value');
-d = get(handles.radio_Aluminum, 'value');
+a = get(handles.radio_Silicon, 'value'); % stores values of Silicon radial button
+b = get(handles.radio_Copper, 'value'); % stores values of Copper radial button
+c = get(handles.radio_Manganese, 'value'); % stores values of Maganese radial button
+d = get(handles.radio_Aluminum, 'value'); % stores values of Aluminum radial button
 if((a == 1) || (b == 1) || (c == 1) || (d == 1))
+    % these are setting the correct values to the corresponding radial
+    % button and plotting the equation with the given input.
     if(a == 1)
         Eb = 446;
         d = .222;

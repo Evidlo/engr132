@@ -96,8 +96,8 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in push_mainmenu.
 function push_mainmenu_Callback(hObject, eventdata, handles)
-nanohubGUI_sec005_team18;
-close(NanoEnergyIntro_hallowj);
+nanohubGUI_sec005_team18; % takes user to main menu
+close(NanoEnergyIntro_hallowj); % closes intro page when going to main menu
 % hObject    handle to push_mainmenu (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -105,8 +105,8 @@ close(NanoEnergyIntro_hallowj);
 
 % --- Executes on button press in push_next.
 function push_next_Callback(hObject, eventdata, handles)
-NanoEnergy_hallowj;
-close(NanoEnergyIntro_hallowj);
+NanoEnergy_hallowj; % opens next page(NanoEnergy)
+close(NanoEnergyIntro_hallowj); % closes intro page
 % hObject    handle to push_next (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -114,7 +114,7 @@ close(NanoEnergyIntro_hallowj);
 
 % --- Executes on button press in push_exit.
 function push_exit_Callback(hObject, eventdata, handles)
-close(NanoEnergyIntro_hallowj);
+close(NanoEnergyIntro_hallowj); % closes entire GUI
 % hObject    handle to push_exit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)

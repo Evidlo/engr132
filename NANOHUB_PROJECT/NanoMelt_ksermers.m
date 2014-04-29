@@ -80,6 +80,23 @@ guidata(hObject, handles);
 % UIWAIT makes NanoMelt_ksermers wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
+%Initialize Handles
+handles.spec_heat = .54; %initial value for specific heat
+guidata(hObject, handles);
+
+handles.heat_fus = 296; %initial value for heat of fusion
+guidata(hObject, handles);
+
+handles.Temp_change = 3560; %initial value for the temperature change
+guidata(hObject, handles);
+
+handles.density = 4500; %initial value for the material density
+guidata(hObject, handles);
+
+handles.melt_point = 1941; %initial value for the melting point
+guidata(hObject, handles);
+
+
 
 % --- Outputs from this function are returned to the command line.
 function varargout = NanoMelt_ksermers_OutputFcn(hObject, eventdata, handles) 
@@ -127,9 +144,8 @@ function slide_Radius_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'Value') returns position of slider
 %        get(hObject,'Min') and get(hObject,'Max') to determine range of slider
 
-%radius = get(handles.slide_Radius, 'value');
-
-
+radius = get(handles.slide_Radius, 'value') * 1e-6; %Gets radius from slider
+set(handles.static_Radius, 'string', radius); %Shows slider value in static text box
 
 
 
@@ -158,42 +174,60 @@ function bgroup_Material_SelectionChangeFcn(hObject, eventdata, handles)
 %	NewValue: handle of the currently selected object
 % handles    structure with handles and user data (see GUIDATA)
 
+% Gets value of each radio button
+gold = get(handles.radio_Gold, 'value'); 
+alum = get(handles.radio_Aluminum, 'value');
+copper = get(handles.radio_Copper, 'value');
+titanium = get(handles.radio_Titanium, 'value');
 
-% gold = get(handle.radio_Gold, 'value');
-% alum = get(handle.radio_Aluminum, 'value');
-% copper = get(handle.radio_Copper, 'value');
-% titanium = get(handle.radio_Titanium, 'value');
-% 
-% 
-% if gold
-%    spec_heat = .126;
-%    heat_fus = 63.7;
-%    Temp_change = 3243;
-%    density = 19320;
-%    melt_point = 1337;
-% end
-% if alum
-%    spec_heat = .91;
-%    heat_fus = 397;
-%    Temp_change = 2792;
-%    density = 2712;
-%    melt_point = 933;
-% end
-% if copper
-%    spec_heat = .39;
-%     heat_fus = 209;
-%     Temp_change = 2835;
-%     density = 8940;
-%     melt_point = 1358;
-% end
-% if titanium
-%     spec_heat = .54;
-%     heat_fus = 296;
-%     Temp_change = 3560;
-%     density = 4500;
-%     melt_point = 1941;
-% end
+% Variable values if gold is selected
+if gold
+   spec_heat = .126;
+   heat_fus = 63.7;
+   Temp_change = 3243;
+   density = 19320;
+   melt_point = 1337;
 
+% Variable values if aluminum is selected   
+elseif alum
+   spec_heat = .91;
+   heat_fus = 397;
+   Temp_change = 2792;
+   density = 2712;
+   melt_point = 933;
+   
+% Variable values if copper is selected 
+elseif copper
+    spec_heat = .39;
+    heat_fus = 209;
+    Temp_change = 2835;
+    density = 8940;
+    melt_point = 1358;
+    
+% Variable values if titanium is selected 
+elseif titanium
+    spec_heat = .54;
+    heat_fus = 296;
+    Temp_change = 3560;
+    density = 4500;
+    melt_point = 1941;
+end
+
+% Sets handles from button group
+handles.spec_heat = spec_heat;
+guidata(handles.bgroup_Material, handles);
+
+handles.heat_fus = heat_fus;
+guidata(handles.bgroup_Material, handles);
+
+handles.Temp_change = Temp_change;
+guidata(handles.bgroup_Material, handles);
+
+handles.density = density;
+guidata(handles.bgroup_Material, handles);
+
+handles.melt_point = melt_point;
+guidata(handles.bgroup_Material, handles);
 
 
 
@@ -211,19 +245,23 @@ function push_Graph_Callback(hObject, eventdata, handles)
 % heat_fus = get(handles.heat_fus, 'value');
 % Temp_change = get(handles.Temp_change, 'value');
 
+
+%get values from radio buttons and slider
 radius = get(handles.slide_Radius, 'value');
+spec_heat = handles.spec_heat;
+density = handles.density;
+melt_point = handles.melt_point;
+heat_fus = handles.heat_fus;
+Temp_change = handles.Temp_change;
 
+radius = radius * 10 .^ -6; % Converts radius to nanometers
+mass = (4/3) * pi * (radius ^ 3) * density; %Determines the particle's mass
+t1 = mass * spec_heat * melt_point; %The time it takes to melt from the beginning
+t2 = mass * heat_fus + t1; %The time it takes from the beginning until the heat of fusion process is complete
+t3 = mass * spec_heat * (Temp_change - melt_point) + t2; %The time it takes from the beginning to boil
 
-% radius = radius * 10.^-6;
-% mass = (4/3) * pi * radius * radius * radius * density;
-% t1 = mass * spec_heat * melt_point;
-% t2 = mass * heat_fus;
-% t3 = mass * spec_heat * (Temp_change - melt_point);
-% 
-% x = [0, t1, t2, t3];
-% y = [0, melt_point, melt_point, Temp_change];
-x = 0:.1:10;
-y = x.^2;
+x = [0, t1, t2, t3]; %sets values as an array
+y = [0, melt_point, melt_point, Temp_change];
 
 axes(handles.plot_Phase_change)
 plot(x,y);
