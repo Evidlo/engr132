@@ -79,10 +79,6 @@ guidata(hObject, handles);
 
 % UIWAIT makes NanoMelt_ksermers wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
-handles.spec_heat = .54;
-guidata(hObject, handles);
-
-
 
 
 % --- Outputs from this function are returned to the command line.
@@ -184,7 +180,7 @@ elseif alum
    melt_point = 933;
 
 elseif copper
-    spec_heat = .39;
+   spec_heat = .39;
     heat_fus = 209;
     Temp_change = 2835;
     density = 8940;
@@ -198,8 +194,6 @@ elseif titanium
     melt_point = 1941;
 end
 
-handles.spec_heat = spec_heat;
-guidata(bgroup_Material, handles);
 
 
 
@@ -217,13 +211,11 @@ function push_Graph_Callback(hObject, eventdata, handles)
 % heat_fus = get(handles.heat_fus, 'value');
 % Temp_change = get(handles.Temp_change, 'value');
 
-
-%get values from radio buttons and slider
 radius = get(handles.slide_Radius, 'value');
-spec_heat = handles.spec_heat
 
-radius = radius * 10 .^ -6
-mass = (4/3) * pi * (radius ^ 3) * density;
+
+radius = radius * 10.^-6;
+mass = (4/3) * pi * radius * radius * radius * density;
 t1 = mass * spec_heat * melt_point;
 t2 = mass * heat_fus;
 t3 = mass * spec_heat * (Temp_change - melt_point);
