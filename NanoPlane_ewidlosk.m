@@ -152,7 +152,7 @@ set(hObject,'String','Simulating');
 set(handles.static_tip,'String','Simulating!!!');
 res = .1;
 x = 0:res:takeoff;
-y_crit = zeros(length(x)) + handles.wing_strength;handles.wing_mass + handles.mass_factor
+y_crit = zeros(length(x)) + handles.wing_strength;handles.wing_mass + handles.mass_factor;
 y = exp(-(x+slider)).*(x).^(2+slider*.5).*(handles.wing_mass);
 xmin = min(x);xmax = max(x);ymin = min(y);ymax = max(y);
 axes(handles.plot_tension)
