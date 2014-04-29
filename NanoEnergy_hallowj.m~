@@ -222,13 +222,11 @@ function push_Graph_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.text_error_metal, 'Visible', 'off')
-a = get(handles.radio_Silicon, 'value'); % stores values of Silicon radial button
-b = get(handles.radio_Copper, 'value'); % stores values of Copper radial button
+a = get(handles.radio_Silicon, 'value'); % stores values of silicon radial button
+b = get(handles.radio_Copper, 'value'); % stores values of copper radial button
 c = get(handles.radio_Manganese, 'value'); % stores values of Maganese radial button
 d = get(handles.radio_Aluminum, 'value'); % stores values of Aluminum radial button
 if((a == 1) || (b == 1) || (c == 1) || (d == 1))
-    % these are setting the correct values to the corresponding radial
-    % button and plotting the equation with the given input.
     if(a == 1)
         Eb = 446;
         d = .222;
