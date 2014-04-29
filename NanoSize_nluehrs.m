@@ -179,7 +179,7 @@ set(handles.static_result, 'string', diststr)                               %dis
 if distance >= .5 * conversion                                             %if the user clicks an obscene distance from the center, they are told to try harder
     set(handles.static_help, 'string', 'Come on, at least try!!');
 else                                                                        %otherwise they are prompted to continue
-    set(handles.static_help, 'string', 'Click Next Plot Option');
+    set(handles.static_help, 'string', 'Click Another Plot Option');
 end
 
 set(handles.push_start, 'string', 'Retry');                                 %changes start button to a retry button
