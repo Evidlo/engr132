@@ -140,30 +140,31 @@ else
 end
 slider = get(handles.slide_truss,'Value');
 slider = slider + .1;
-handles.truss_length = 10^-(10*slider+8);
-handles.wing_mass = .01*handles.mass_factor*(slider) + .5 * handles.mass_factor/10000;
-handles.wing_strength = .01*handles.mass_factor*(2*slider)^2;
-set(handles.static_truss,'String',strcat(num2str(handles.truss_length),' m'));
-set(handles.static_mass,'String',strcat(num2str(handles.wing_mass),' kg'));
-set(handles.static_strength,'String',strcat(num2str(handles.wing_strength),' GPa'));
+handles.wing_strength = abs(2*slider-.3)*.01*handles.mass_factor*(2*slider)^2
 
-
+%Set button information
 set(hObject,'String','Simulating');
 set(handles.static_tip,'String','Simulating!!!');
+
+%Calculate flight of plane
 res = .1;
 x = 0:res:takeoff;
-y_crit = zeros(length(x)) + handles.wing_strength;handles.wing_mass + handles.mass_factor;
-y = exp(-(x+slider)).*(x).^(2+slider*.5).*(handles.wing_mass);
+y_crit = zeros(length(x)) + handles.wing_strength;
+y = (exp(-(x+slider)).*(x.^4)*((slider-.5)*5)^2+.2 * (1-exp(-x.^2)))*.01*handles.mass_factor*(2*slider)^2;
 xmin = min(x);xmax = max(x);ymin = min(y);ymax = max(y);
 axes(handles.plot_tension);
 
+<<<<<<< HEAD
 handles.wing_strength;
+=======
+>>>>>>> b231b73a15c4d3c25839bfd9ae4ec5131612c2de
 success = 1;
 
+%Determine if plane crashes or succeeds
 c=[];
-[r c] = find(y>y_crit(1));
+[r c] = find(y>y_crit(1)); % find if tension surpasses critical limits
 c = c.*res;
-endtime = 10;
+endtime = takeoff;
 if length(c) > 0
     if c(1) < endtime
      endtime = c(1);
@@ -171,9 +172,11 @@ if length(c) > 0
     end
 end
 
+%plot critical tension line
 plot(x,y_crit,'r-');
 hold on;
 
+%plot airplane tension with animation
 for n = 1:endtime/res
     set(handles.static_runtime,'String',num2str(x(n)));
     plot(x(1:n),y(1:n));
@@ -183,6 +186,7 @@ for n = 1:endtime/res
     pause(.05);
 end
 
+%set tip box according to plane state
 set(hObject,'String','Start Takeoff!');
 if success == 0
     set(handles.static_tip,'String','Takeoff failed!  Your plane crashed!  Adjust the nanostructure size and try again.');
@@ -256,9 +260,9 @@ else
 end
 slider = get(handles.slide_truss,'Value');
 slider = slider + .1;
-handles.truss_length = 10^-(10*slider+8);
+handles.truss_length = 10^-(4*slider+6);
 handles.wing_mass = .01*handles.mass_factor*(slider) + .5 * handles.mass_factor/10000;
-handles.wing_strength = .01*handles.mass_factor*(2*slider)^2;
+handles.wing_strength = abs(2*slider-.3)*.01*handles.mass_factor*(2*slider)^2;
 set(handles.static_truss,'String',strcat(num2str(handles.truss_length),' m'));
 set(handles.static_mass,'String',strcat(num2str(handles.wing_mass),' kg'));
 set(handles.static_strength,'String',strcat(num2str(handles.wing_strength),' GPa'));
