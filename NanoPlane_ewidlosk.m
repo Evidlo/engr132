@@ -8,7 +8,7 @@
 %
 %  Section #: 005     Team #: 18
 %
-%  Assignment #: M7
+%  Assignment #: M9
 %
 %  Academic Integrity Statement:
 %
@@ -155,9 +155,9 @@ x = 0:res:takeoff;
 y_crit = zeros(length(x)) + handles.wing_strength;handles.wing_mass + handles.mass_factor;
 y = exp(-(x+slider)).*(x).^(2+slider*.5).*(handles.wing_mass);
 xmin = min(x);xmax = max(x);ymin = min(y);ymax = max(y);
-axes(handles.plot_tension)
+axes(handles.plot_tension);
 
-handles.wing_strength
+handles.wing_strength;
 success = 1;
 
 c=[];
@@ -172,7 +172,7 @@ if length(c) > 0
 end
 
 plot(x,y_crit,'r-');
-hold on
+hold on;
 
 for n = 1:endtime/res
     set(handles.static_runtime,'String',num2str(x(n)));
@@ -180,7 +180,7 @@ for n = 1:endtime/res
     ylabel('Wing Tension (GPa)');
     xlabel('Time');
     axis([xmin xmax 0 handles.wing_strength*1.25]);
-    pause(.05)
+    pause(.05);
 end
 
 set(hObject,'String','Start Takeoff!');
