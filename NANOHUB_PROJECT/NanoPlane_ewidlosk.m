@@ -140,7 +140,7 @@ else
 end
 slider = get(handles.slide_truss,'Value');
 slider = slider + .1;
-handles.wing_strength = abs(2*slider-.3)*.01*handles.mass_factor*(2*slider)^2
+handles.wing_strength = abs(2*slider-.3)*.01*handles.mass_factor*(2*slider)^2;
 
 %Set button information
 set(hObject,'String','Simulating');
@@ -154,10 +154,7 @@ y = (exp(-(x+slider)).*(x.^4)*((slider-.5)*5)^2+.2 * (1-exp(-x.^2)))*.01*handles
 xmin = min(x);xmax = max(x);ymin = min(y);ymax = max(y);
 axes(handles.plot_tension);
 
-<<<<<<< HEAD
-handles.wing_strength;
-=======
->>>>>>> b231b73a15c4d3c25839bfd9ae4ec5131612c2de
+
 success = 1;
 
 %Determine if plane crashes or succeeds
@@ -193,7 +190,7 @@ if success == 0
 else
     set(handles.static_tip,'String','Congratulations!  You successfully balanced the gains in strength and total weight.');
 end
-hold off
+hold off;
 
 
 % --- Executes on button press in push_exit.
