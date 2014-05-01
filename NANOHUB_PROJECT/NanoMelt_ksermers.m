@@ -265,5 +265,7 @@ y = [0, melt_point, melt_point, Temp_change];
 
 axes(handles.plot_Phase_change)
 plot(x,y);
+xlabel('Energy (J)');
+ylabel('Melting Point (K)');
 
 
